@@ -199,6 +199,22 @@ const intersection = function(firstArrayElements,secondArrayElements) {
   return intersection;
 }
 
+const diffrence = function(firstArrayElements,secondArrayElements) {
+  let diffrence  = [];
+  let firstArray = uniqueElement(firstArrayElements);
+  let secondArray = uniqueElement(secondArrayElements);
+  for(let index = 0; index < firstArray.length; index++){
+    for(let index1 = 0; index1 < secondArray.length; index1++){
+      if(firstArray[index]!=secondArray[index1]){
+        diffrence.push(firstArray[index]);
+      }
+    }
+  }
+  
+  return uniqueElement(diffrence);
+}
+
+exports.diffrence = diffrence;
 exports.intersection = intersection;
 exports.unionOfNumbers = unionOfNumbers;
 exports.uniqueElement = uniqueElement;

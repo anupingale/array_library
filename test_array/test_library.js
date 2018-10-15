@@ -1,4 +1,5 @@
 const library = require("/Users/pannapur/Projects/assignments/javascript_assignment/array_practice/array_library/library.js");
+const diffrence = library.diffrence;
 const intersection = library.intersection;
 const unionOfNumbers = library.unionOfNumbers;
 const uniqueElement = library.uniqueElement;
@@ -162,3 +163,10 @@ assert.deepStrictEqual(intersection([1,2,3],[1,2,3]),[1,2,3]);
 assert.deepStrictEqual(intersection([1,2,1],[1,2]),[1,2]);
 assert.deepStrictEqual(intersection([1,1,1],[1,1]),[1]);
 assert.deepStrictEqual(intersection([0,1,0,1],[0,1]),[0,1]);
+
+// test xases for diffrence of elements in array
+assert.deepStrictEqual(diffrence([],[]),[]);
+assert.deepStrictEqual(diffrence([1],[2]),[1]);
+assert.deepStrictEqual(diffrence([1,1],[2]),[1]);
+assert.deepStrictEqual(diffrence([1,1,1],[1]),[]);
+assert.deepStrictEqual(diffrence([1,2,3],[4,5]),[1,2,3])
