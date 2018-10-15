@@ -185,6 +185,21 @@ const unionOfNumbers = function(firstArrayElements,secondArrayElements) {
   return uniqueElement(combineTwoArrays);
 }
 
+const intersection = function(firstArrayElements,secondArrayElements) {
+  let intersection = [];
+  let firstArray = uniqueElement(firstArrayElements);
+  let secondArray = uniqueElement(secondArrayElements);
+  for(let index = 0; index < firstArray.length; index++){
+    for(let index1 = 0; index1 < secondArray.length; index1++){
+      if(firstArray[index]==secondArray[index1]){
+        intersection.push(firstArray[index]);
+      }
+    }
+  }
+  return intersection;
+}
+
+exports.intersection = intersection;
 exports.unionOfNumbers = unionOfNumbers;
 exports.uniqueElement = uniqueElement;
 exports.greatestNumber = greatestNumber;

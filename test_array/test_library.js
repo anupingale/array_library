@@ -1,4 +1,5 @@
-const library = require("/Users/pannapur/Projects/assignments/javascript_assignment/array_practice/array_library/extractOddNumbers.js");
+const library = require("/Users/pannapur/Projects/assignments/javascript_assignment/array_practice/array_library/library.js");
+const intersection = library.intersection;
 const unionOfNumbers = library.unionOfNumbers;
 const uniqueElement = library.uniqueElement;
 const extractDigitsIntoArray = library.extractDigitsIntoArray;
@@ -152,3 +153,12 @@ assert.deepStrictEqual(unionOfNumbers([1],[2]),[1,2]);
 assert.deepStrictEqual(unionOfNumbers([],[2]),[2]);
 assert.deepStrictEqual(unionOfNumbers([2],[]),[2]);
 assert.deepStrictEqual(unionOfNumbers([2,3,4],[2,3,5]),[2,3,4,5]);
+
+// test cases for insertion of elements in array
+assert.deepStrictEqual(intersection([],[]),[]);
+assert.deepStrictEqual(intersection([1],[1]),[1]);
+assert.deepStrictEqual(intersection([1,2],[1]),[1]);
+assert.deepStrictEqual(intersection([1,2,3],[1,2,3]),[1,2,3]);
+assert.deepStrictEqual(intersection([1,2,1],[1,2]),[1,2]);
+assert.deepStrictEqual(intersection([1,1,1],[1,1]),[1]);
+assert.deepStrictEqual(intersection([0,1,0,1],[0,1]),[0,1]);
