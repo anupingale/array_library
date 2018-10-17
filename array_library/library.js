@@ -7,7 +7,11 @@ const isEven = function(number){
 }
 
 const reverseNumbers = function(numbers){
-  return numbers.reverse();
+  let reverseNumbers = [];
+  for(let index = numbers.length-1; index >= 0; index--){
+      reverseNumbers.push(numbers[index]);
+  }
+  return reverseNumbers;
 }
 
 const extractOddNumbers = function(numbers) {
@@ -214,6 +218,20 @@ const diffrence = function(firstArrayElements,secondArrayElements) {
   return uniqueElement(diffrence);
 }
 
+const isSubset = function(array,subsetArray) {
+  let count = 0;
+  for(let element of subsetArray){
+    if(array.includes(element)){
+      count++;
+    }
+    if(count == subsetArray.length){
+      return true;
+    }
+  }
+  return false;
+}
+
+exports.isSubset = isSubset;
 exports.diffrence = diffrence;
 exports.intersection = intersection;
 exports.unionOfNumbers = unionOfNumbers;

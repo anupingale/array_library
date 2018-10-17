@@ -1,4 +1,5 @@
 const library = require("/Users/pannapur/Projects/assignments/javascript_assignment/array_practice/array_library/library.js");
+const isSubset = library.isSubset;
 const diffrence = library.diffrence;
 const intersection = library.intersection;
 const unionOfNumbers = library.unionOfNumbers;
@@ -50,7 +51,7 @@ assert.deepStrictEqual(sumOfNumbers([-1,3]),2);
 assert.deepStrictEqual(sumOfNumbers([-1,-2]),-3);
 assert.deepStrictEqual(sumOfNumbers([-5,1]),-4);
 
-// test cases for adding numbers in array
+// test cases for adding numbers in reverse order in array
 assert.deepStrictEqual(reverseNumbers([]),[]);
 assert.deepStrictEqual(reverseNumbers([1]),[1]);
 assert.deepStrictEqual(reverseNumbers([1,2]),[ 2, 1]);
@@ -63,7 +64,7 @@ assert.deepStrictEqual(selectEverySecondNumber([1,2,3]),[1,3]);
 assert.deepStrictEqual(selectEverySecondNumber([-1,-2,-3]),[-1,-3]);
 
 // test cases for printing elements in fibonacci series in reverse order
-assert.deepStrictEqual(reverseFibonacciSeries(0),[0])
+assert.deepStrictEqual(reverseFibonacciSeries(0),[0]);
 assert.deepStrictEqual(reverseFibonacciSeries(1),[0]);
 assert.deepStrictEqual(reverseFibonacciSeries(4),[2,1,1,0]);
 assert.deepStrictEqual(reverseFibonacciSeries(-1),[0]);
@@ -164,9 +165,16 @@ assert.deepStrictEqual(intersection([1,2,1],[1,2]),[1,2]);
 assert.deepStrictEqual(intersection([1,1,1],[1,1]),[1]);
 assert.deepStrictEqual(intersection([0,1,0,1],[0,1]),[0,1]);
 
-// test xases for diffrence of elements in array
+// test cases for diffrence of elements in array
 assert.deepStrictEqual(diffrence([],[]),[]);
 assert.deepStrictEqual(diffrence([1],[2]),[1]);
 assert.deepStrictEqual(diffrence([1,1],[2]),[1]);
 assert.deepStrictEqual(diffrence([1,1,1],[1]),[]);
 assert.deepStrictEqual(diffrence([1,2,3],[4,5]),[1,2,3])
+
+// test cases for checking wether string has subset or not
+assert.deepStrictEqual(isSubset([10,20,30],[10]),true);
+assert.deepStrictEqual(isSubset([10,20,30],[10,30,20]),true);
+assert.deepStrictEqual(isSubset([10,10],[]),false);
+assert.deepStrictEqual(isSubset([1,2],[3,4]),false);
+
