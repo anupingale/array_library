@@ -234,10 +234,19 @@ const isSubset = function(array,subsetArray) {
 
 const zipElements = function(firstArrayElements,secondArrayElements) {
   let zippedElements = [];
-  for(let index = 0; index < firstArrayElements.length; index++){
-    zippedElements.push(firstArrayElements[index]);
-    zippedElements.push(secondArrayElements[index]);
+  let smallerArray = firstArrayElements;
+  let largerArray = secondArrayElements;
+
+  if(secondArrayElements.length < firstArrayElements.length) {
+    smallerArray = secondArrayElements;
+    largerArray = firstArrayElements;
   }
+
+  for(let index = 0; index < smallerArray.length; index++){
+    zippedElements.push(smallerArray[index]);
+    zippedElements.push(largerArray[index]);
+  }
+
   return zippedElements;
 }
 

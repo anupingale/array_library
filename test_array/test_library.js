@@ -182,4 +182,7 @@ assert.deepStrictEqual(isSubset([1,2],[3,4]),false);
 // test cases for zip(intersect arrays according to their index)
 assert.deepStrictEqual(zipElements([10],[1]),[10,1]);
 assert.deepStrictEqual(zipElements([1,2,3],[1,2,3]),[1,1,2,2,3,3]);
+assert.deepStrictEqual(zipElements([1,2],[1,2,3]),[1,1,2,2]);
+assert.deepStrictEqual(zipElements([1,2,3],[1,2]),[1,1,2,2]);
+
 
