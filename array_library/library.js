@@ -220,6 +220,7 @@ const diffrence = function(firstArrayElements,secondArrayElements) {
 
 const isSubset = function(array,subsetArray) {
   let count = 0;
+
   for(let element of subsetArray){
     if(array.includes(element)){
       count++;
@@ -231,6 +232,16 @@ const isSubset = function(array,subsetArray) {
   return false;
 }
 
+const zipElements = function(firstArrayElements,secondArrayElements) {
+  let zippedElements = [];
+  for(let index = 0; index < firstArrayElements.length; index++){
+    zippedElements.push(firstArrayElements[index]);
+    zippedElements.push(secondArrayElements[index]);
+  }
+  return zippedElements;
+}
+
+exports.zipElements = zipElements;
 exports.isSubset = isSubset;
 exports.diffrence = diffrence;
 exports.intersection = intersection;

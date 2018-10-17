@@ -1,4 +1,5 @@
 const library = require("/Users/pannapur/Projects/assignments/javascript_assignment/array_practice/array_library/library.js");
+const zipElements = library.zipElements; 
 const isSubset = library.isSubset;
 const diffrence = library.diffrence;
 const intersection = library.intersection;
@@ -177,4 +178,8 @@ assert.deepStrictEqual(isSubset([10,20,30],[10]),true);
 assert.deepStrictEqual(isSubset([10,20,30],[10,30,20]),true);
 assert.deepStrictEqual(isSubset([10,10],[]),false);
 assert.deepStrictEqual(isSubset([1,2],[3,4]),false);
+
+// test cases for zip(intersect arrays according to their index)
+assert.deepStrictEqual(zipElements([10],[1]),[10,1]);
+assert.deepStrictEqual(zipElements([1,2,3],[1,2,3]),[1,1,2,2,3,3]);
 
