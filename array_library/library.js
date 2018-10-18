@@ -250,6 +250,20 @@ const zipElements = function(firstArrayElements,secondArrayElements) {
   return zippedElements;
 }
 
+const rotateElements = function(numbers,index) {
+  let rotatedElements = [];
+  let shiftBy = index%numbers.length;
+  for(let index = shiftBy; index < numbers.length; index++) {
+    rotatedElements.push(numbers[index]);
+  }
+  for(let index = 0; index < shiftBy; index++) {
+    rotatedElements.push(numbers[index]);
+  }
+
+  return rotatedElements;
+}
+
+exports.rotateElements = rotateElements;
 exports.zipElements = zipElements;
 exports.isSubset = isSubset;
 exports.diffrence = diffrence;

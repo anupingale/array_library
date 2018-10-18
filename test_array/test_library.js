@@ -1,4 +1,5 @@
 const library = require("/Users/pannapur/Projects/assignments/javascript_assignment/array_practice/array_library/library.js");
+const rotateElements = library.rotateElements;
 const zipElements = library.zipElements; 
 const isSubset = library.isSubset;
 const diffrence = library.diffrence;
@@ -185,4 +186,10 @@ assert.deepStrictEqual(zipElements([1,2,3],[1,2,3]),[1,1,2,2,3,3]);
 assert.deepStrictEqual(zipElements([1,2],[1,2,3]),[1,1,2,2]);
 assert.deepStrictEqual(zipElements([1,2,3],[1,2]),[1,1,2,2]);
 
+// test cases for rotation of array elements accoring to the given index
+assert.deepStrictEqual(rotateElements([1,2,3,4,5],0),[1,2,3,4,5]);
+assert.deepStrictEqual(rotateElements([1,2,3,4,5],1),[2,3,4,5,1]);
+assert.deepStrictEqual(rotateElements([1,2,3,4,5],2),[3,4,5,1,2]);
+assert.deepStrictEqual(rotateElements([1,2,3,4,5],20),[1,2,3,4,5]);
+assert.deepStrictEqual(rotateElements([1,2,3,4,5],4),[5,1,2,3,4]);
 
