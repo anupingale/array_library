@@ -1,4 +1,5 @@
 const library = require("/Users/pannapur/Projects/assignments/javascript_assignment/array_practice/array_library/library.js");
+const partition = library.partition; 
 const rotateElements = library.rotateElements;
 const zipElements = library.zipElements; 
 const isSubset = library.isSubset;
@@ -193,3 +194,8 @@ assert.deepStrictEqual(rotateElements([1,2,3,4,5],2),[3,4,5,1,2]);
 assert.deepStrictEqual(rotateElements([1,2,3,4,5],20),[1,2,3,4,5]);
 assert.deepStrictEqual(rotateElements([1,2,3,4,5],4),[5,1,2,3,4]);
 
+// test cases for partitioning of array elements according to the threshold value
+assert.deepStrictEqual(partition([1,2,3,4,5],3),[[1,2],[4,5]]);
+assert.deepStrictEqual(partition([1,2,3],1),[[],[2,3]]);
+assert.deepStrictEqual(partition([-1,-2],0),[[-1,-2],[]]);
+assert.deepStrictEqual(partition([],[],5),[[],[]]);

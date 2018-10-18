@@ -259,10 +259,25 @@ const rotateElements = function(numbers,index) {
   for(let index = 0; index < shiftBy; index++) {
     rotatedElements.push(numbers[index]);
   }
-
   return rotatedElements;
 }
 
+const partition = function(numbers,threshold) {
+  let numbersAboveThreshold = [];
+  let numbersBelowThreshold = [];
+  for(let element of numbers){
+    if(element > threshold){
+      numbersAboveThreshold.push(element);
+    }
+    if(element < threshold){
+      numbersBelowThreshold.push(element);
+    }
+  }
+  let partitiondElements = [numbersBelowThreshold,numbersAboveThreshold];
+  return partitiondElements;
+}
+
+exports.partition = partition;
 exports.rotateElements = rotateElements;
 exports.zipElements = zipElements;
 exports.isSubset = isSubset;
