@@ -128,11 +128,11 @@ const countNumbersBelowThreshold = function(threshold,numbers) {
 }
 
 const indexOfNumber = function(value,numbers) {
-  for(let index in numbers){
-    if(value == numbers[index]){
-      return +index;
+    for(let index in numbers){
+      if(value == numbers[index]){
+        return +index;
+      }
     }
-  }
 }
 
 const isAsending = function(numbers) {
@@ -237,7 +237,7 @@ const zipElements = function(firstArrayElements,secondArrayElements) {
   let smallerArray = firstArrayElements;
   let largerArray = secondArrayElements;
 
-  if(secondArrayElements.length < firstArrayElements.length) {
+  if(secondArrayElements.length <  firstArrayElements.length) {
     smallerArray = secondArrayElements;
     largerArray = firstArrayElements;
   }
