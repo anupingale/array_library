@@ -19,8 +19,7 @@ const extractEvenNumbers = function(numbers) {
 }
 
 const selectEverySecondNumber = function(numbers) {
- return numbers.filter(function(number,index){
-  if(isEven(index)){return number;}});
+ return numbers.filter(function(number,index){if(isEven(index)){return number;}});
 }
 
 const sum = function(number1,number2){
@@ -190,7 +189,6 @@ const diffrence = function(firstArrayElements,secondArrayElements) {
 
 const isSubset = function(array,subsetArray) {
   let count = 0;
-
   for(let element of subsetArray){
     if(array.includes(element)){
       count++;
@@ -204,19 +202,13 @@ const isSubset = function(array,subsetArray) {
 
 const zipElements = function(firstArrayElements,secondArrayElements) {
   let zippedElements = [];
-  let smallerArray = firstArrayElements;
-  let largerArray = secondArrayElements;
-
-  if(secondArrayElements.length <  firstArrayElements.length) {
-    smallerArray = secondArrayElements;
-    largerArray = firstArrayElements;
+  let threshold = Math.min(firstArrayElements.length,secondArrayElements.length);
+  for(let index = 0; index < threshold; index++){
+    let indexElements = [];
+    indexElements.push(firstArrayElements[index]);
+    indexElements.push(secondArrayElements[index]);
+    zippedElements[index]=indexElements;
   }
-
-  for(let index = 0; index < smallerArray.length; index++){
-    zippedElements.push(smallerArray[index]);
-    zippedElements.push(largerArray[index]);
-  }
-
   return zippedElements;
 }
 

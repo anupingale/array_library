@@ -347,10 +347,10 @@ const testZipElements = function(array1,array2,expectedResult,msg){
   return;
 }
 
-testZipElements([10],[1],[10,1],"zipping array elements");
-testZipElements([1,2,3],[1,2,3],[1,1,2,2,3,3],"zipping array elements");
-testZipElements([1,2],[1,2,3],[1,1,2,2],"zipping array elements");
-testZipElements([1,2,3],[1,2],[1,1,2,2],"zipping array elements");
+testZipElements([10],[1],[[10,1]],"zipping array elements");
+testZipElements([1,2,3],[1,2,3],[[1,1],[2,2],[3,3]],"zipping array elements");
+testZipElements([1,2],[1,2,3],[[1,1],[2,2]],"zipping array elements");
+testZipElements([1,2,3],[1,2],[[1,1],[2,2]],"zipping array elements");
 console.log("-------");
 
 const testRotateElements = function(array,index,expectedResult,msg){
