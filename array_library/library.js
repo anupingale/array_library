@@ -7,31 +7,15 @@ const isEven = function(number){
 }
 
 const reverseNumbers = function(numbers){
-  let reverseNumbers = [];
-  for(let index = numbers.length-1; index >= 0; index--){
-      reverseNumbers.push(numbers[index]);
-  }
-  return reverseNumbers;
+  return numbers.reverse();
 }
 
 const extractOddNumbers = function(numbers) {
-  let oddNumbers=[];
-  for(let number of numbers){
-    if(isOdd(number)){
-      oddNumbers[oddNumbers.length] = number;
-    }
-  }
-  return oddNumbers;
+   return numbers.filter(isOdd);
 }
 
 const extractEvenNumbers = function(numbers) {
-  let evenNumbers=[];
-  for(let number of numbers){
-    if(isEven(number)){
-      evenNumbers[evenNumbers.length] = number;
-    }
-  }
-  return evenNumbers;
+  return numbers.filter(isEven);
 }
 
 const selectEverySecondNumber = function(numbers) {
