@@ -23,15 +23,15 @@ const selectEverySecondNumber = function(numbers) {
   if(isEven(index)){return number;}});
 }
 
-const sumOfNumbers = function(numbers) {
-   let sumOfNumbers = 0;
-  for(let number of numbers){
-    sumOfNumbers = (sumOfNumbers+(+number));
-  }
-  return sumOfNumbers;
+const sum = function(number1,number2){
+  return number1+number2;
 }
 
-const reverseFibonacciSeries = function(limit) {
+const sumOfNumbers = function(numbers) {
+  return numbers.reduce(sum,0);
+}
+
+const fibonacciSeries = function(limit) {
   let firstNumber = 0;
   let secondNumber = 1;
   let index = 2;
@@ -39,21 +39,19 @@ const reverseFibonacciSeries = function(limit) {
   while(index <= limit){
     let thirdNumber = firstNumber+secondNumber;
     firstNumber = secondNumber;
-    fibonacciSeries.unshift(secondNumber);
+    fibonacciSeries.push(secondNumber);
     secondNumber = thirdNumber;
     index++;
   }
   return fibonacciSeries;
 }
 
+const reverseFibonacciSeries = function(limit) {
+  return fibonacciSeries(limit).reverse();
+}
+
 const greatestNumber = function(numbers) {
-  let greatestNumber = numbers[0];
-  for(number of numbers){
-    while(number > greatestNumber){
-      greatestNumber = number;
-    }
-  }
-  return greatestNumber;
+  return Math.max.apply(null,numbers);
 }
 
 const smallestNumber = function(numbers) {
@@ -109,11 +107,11 @@ const countNumbersBelowThreshold = function(threshold,numbers) {
 }
 
 const indexOfNumber = function(value,numbers) {
-    for(let index in numbers){
-      if(value == numbers[index]){
-        return +index;
-      }
+  for(let index in numbers){
+    if(value == numbers[index]){
+      return +index;
     }
+  }
 }
 
 const isAsending = function(numbers) {
