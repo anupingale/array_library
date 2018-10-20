@@ -63,7 +63,7 @@ const average = function(numbers) {
 }
 
 const lengthOfNames = function(names){
-  return names.map(function(name){return name.length});
+  return names.map(name => name.length);
 }
 
 const countEvenNumbers = function(numbers) {
@@ -74,14 +74,17 @@ const countOddNumbers = function(numbers) {
   return extractOddNumbers(numbers).length;
 }
 
-const countNumbersAboveThreshold = function(threshold,numbers) {
-  let count = 0;
-  for(let number of numbers){
-    if(number > threshold){
-      count++;
-    }
+const segregateNumbers = function(threshold,number){
+  if(number > threshold.threshold){
+    threshold.aboveThreshold.push(number);
   }
-  return count;
+  return threshold;
+}
+
+const countNumbersAboveThreshold = function(limit,numbers) {
+  let threshold = {threshold : limit, aboveThreshold : []};
+   numbers.reduce(segregateNumbers,threshold);
+  return threshold.aboveThreshold.length;
 }
 
 const countNumbersBelowThreshold = function(threshold,numbers) {
