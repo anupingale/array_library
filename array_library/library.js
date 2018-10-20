@@ -19,11 +19,8 @@ const extractEvenNumbers = function(numbers) {
 }
 
 const selectEverySecondNumber = function(numbers) {
-  let selectedArray = [];
-  for(let index = 0; index < numbers.length; index+=2){
-    selectedArray.push(numbers[index]);
-  }
-  return selectedArray;
+ return numbers.filter(function(number,index){
+  if(isEven(index)){return number;}});
 }
 
 const sumOfNumbers = function(numbers) {
