@@ -55,27 +55,15 @@ const greatestNumber = function(numbers) {
 }
 
 const smallestNumber = function(numbers) {
-  let smallestNumber = numbers[0];
-  for(number of numbers){
-    while(number < smallestNumber){
-      smallestNumber = number;
-    }
-  }
-  return smallestNumber;
+  return Math.min.apply(null,numbers);
 }
 
 const average = function(numbers) {
-  let sum = sumOfNumbers(numbers);
-  let length = numbers.length;
-  return sum/length;
+  return sumOfNumbers(numbers)/numbers.length;
 }
 
 const lengthOfNames = function(names){
-  let lengthOfNames=[];
-  for(name of names){
-    lengthOfNames[lengthOfNames.length] = name.length;
-  }
-  return lengthOfNames;
+  return names.map(function(name){return name.length});
 }
 
 const countEvenNumbers = function(numbers) {
