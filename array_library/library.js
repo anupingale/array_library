@@ -18,8 +18,36 @@ const extractEvenNumbers = function(numbers) {
   return numbers.filter(isEven);
 }
 
+const generateNumbers = function(limit){
+  let indexes = [];
+  for(let index = 0; index < limit; index++){
+    indexes.push(index);
+  }
+  return indexes;
+}
+
+const generateIndex = function(limit) {
+  let indexes = [];
+  for(let index = 0; index < limit; index++){
+    indexes.push(index);
+  }
+  return indexes;
+}
+
+const selectNumbers = function(indexedNumbers) {
+  let selectedArray = [];
+  for(number of indexedNumbers){
+    if(isEven(number[1])){
+      selectedArray.push(number[0]);
+    }
+  }
+  return selectedArray;
+}
+
 const selectEverySecondNumber = function(numbers) {
- return numbers.filter(function(number,index){if(isEven(index)){return number;}});
+  let limit = generateIndex(numbers.length);
+  let indexedNumbers = zipElements(numbers,limit);
+  return selectNumbers(indexedNumbers);
 }
 
 const sum = function(number1,number2){
@@ -239,6 +267,8 @@ const partition = function(numbers,threshold) {
   return partitiondElements;
 }
 
+selectEverySecondNumber([10,20,30]);
+
 exports.partition = partition;
 exports.rotateElements = rotateElements;
 exports.zipElements = zipElements;
@@ -266,3 +296,4 @@ exports.reverseNumbers = reverseNumbers;
 exports.sumOfNumbers = sumOfNumbers;
 exports.extractEvenNumbers = extractEvenNumbers;
 exports.extractOddNumbers = extractOddNumbers;
+exports.generateIndex = generateIndex;

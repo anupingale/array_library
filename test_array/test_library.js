@@ -1,7 +1,7 @@
 const library = require("/Users/pannapur/Projects/assignments/javascript_assignment/array_practice/array_library/library.js");
 const myLibrary = require("/Users/pannapur/bin/myLibrary.js");
-const {testLogs,incrementTestNumber,testNumber} = myLibrary;
-const {partition, rotateElements, zipElements, isSubset, diffrence, intersection, unionOfNumbers, uniqueElement, extractDigitsIntoArray, isDecending, isAsending, indexOfNumber, countNumbersBelowThreshold, countNumbersAboveThreshold, countEvenNumbers, countOddNumbers, lengthOfNames, average, extractOddNumbers, greatestNumber, extractEvenNumbers, sumOfNumbers, reverseNumbers, smallestNumber, selectEverySecondNumber, reverseFibonacciSeries} = library;
+const {testLogs} = myLibrary;
+const {generateIndex, partition, rotateElements, zipElements, isSubset, diffrence, intersection, unionOfNumbers, uniqueElement, extractDigitsIntoArray, isDecending, isAsending, indexOfNumber, countNumbersBelowThreshold, countNumbersAboveThreshold, countEvenNumbers, countOddNumbers, lengthOfNames, average, extractOddNumbers, greatestNumber, extractEvenNumbers, sumOfNumbers, reverseNumbers, smallestNumber, selectEverySecondNumber, reverseFibonacciSeries} = library;
 const assert = require("assert");
 
 const testExtractOddNum = function(array,expectedResult,msg){
@@ -379,4 +379,16 @@ const testPartition= function(array,number,expectedResult,msg){
 testPartition([1,2,3,4,5],3,[[1,2],[4,5]],"partition");
 testPartition([1,2,3],1,[[],[2,3]],"partition");
 testPartition([-1,-2],0,[[-1,-2],[]],"partition");
+console.log("-------");
+
+const testGenerateNumbers = function(limit,expectedResult,msg){
+  let actualResult = generateIndex(limit);
+  let args = [limit];
+  testLogs(args,actualResult,expectedResult,msg);
+  assert.deepEqual(actualResult,expectedResult);
+}
+
+testGenerateNumbers(1,[0],"indexes");
+testGenerateNumbers(5,[0,1,2,3,4],"indexes");
+testGenerateNumbers(0,[],"indexes");
 console.log("-------");
