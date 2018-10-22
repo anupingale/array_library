@@ -11,19 +11,11 @@ const reverseNumbers = function(numbers){
 }
 
 const extractOddNumbers = function(numbers) {
-   return numbers.filter(isOdd);
+  return numbers.filter(isOdd);
 }
 
 const extractEvenNumbers = function(numbers) {
   return numbers.filter(isEven);
-}
-
-const generateNumbers = function(limit){
-  let indexes = [];
-  for(let index = 0; index < limit; index++){
-    indexes.push(index);
-  }
-  return indexes;
 }
 
 const generateIndex = function(limit) {
@@ -58,7 +50,7 @@ const sumOfNumbers = function(numbers) {
   return numbers.reduce(sum,0);
 }
 
-const fibonacciSeries = function(limit) {
+const reverseFibonacciSeries = function(limit) {
   let firstNumber = 0;
   let secondNumber = 1;
   let index = 2;
@@ -66,15 +58,11 @@ const fibonacciSeries = function(limit) {
   while(index <= limit){
     let thirdNumber = firstNumber+secondNumber;
     firstNumber = secondNumber;
-    fibonacciSeries.push(secondNumber);
+    fibonacciSeries.unshift(secondNumber);
     secondNumber = thirdNumber;
     index++;
   }
   return fibonacciSeries;
-}
-
-const reverseFibonacciSeries = function(limit) {
-  return fibonacciSeries(limit).reverse();
 }
 
 const greatestNumber = function(numbers) {
@@ -101,7 +89,7 @@ const countOddNumbers = function(numbers) {
   return extractOddNumbers(numbers).length;
 }
 
-const segregateNumbers = function(threshold,number){
+const segregateAboveThreshold = function(threshold,number){
   if(number > threshold.threshold){
     threshold.aboveThreshold.push(number);
   }
@@ -110,22 +98,25 @@ const segregateNumbers = function(threshold,number){
 
 const countNumbersAboveThreshold = function(limit,numbers) {
   let threshold = {threshold : limit, aboveThreshold : []};
-   numbers.reduce(segregateNumbers,threshold);
+   numbers.reduce(segregateAboveThreshold,threshold);
   return threshold.aboveThreshold.length;
 }
 
-const countNumbersBelowThreshold = function(threshold,numbers) {
-  let count = 0;
-  for(let number of numbers){
-    if(number < threshold){
-      count++;
-    }
+const segregateBelowThreshold = function(threshold,number){
+  if(number < threshold.threshold){
+    threshold.belowThreshold.push(number);
   }
-  return count;
+  return threshold;
+}
+
+const countNumbersBelowThreshold = function(limit,numbers) {
+  let threshold = {threshold : limit, belowThreshold : []};
+  numbers.reduce(segregateBelowThreshold,threshold);
+  return threshold.belowThreshold.length;
 }
 
 const indexOfNumber = function(value,numbers) {
-  for(let index in numbers){
+  for(let index in numbers) {
     if(value == numbers[index]){
       return +index;
     }
@@ -153,29 +144,15 @@ const isDecending = function(numbers) {
 }
 
 const extractDigitsIntoArray = function(number) {
-  let numberToString = number.toString();
-  let extractedArray = [];
-  for(let index = 0; index < numberToString.length; index++){
-    extractedArray[index] = +numberToString[index];
-  }
-  return extractedArray;
-}
-
-const isUnique = function(number,uniqueArray) {
-  let isUnique = false;
-  for(let index = 0; index < uniqueArray.length; index++){
-    if(number == uniqueArray[index]){
-      isUnique = true;
-    }
-  }
-  return isUnique;
+  let digitArray =  number.toString().split("");
+  return digitArray.map(number => +number);
 }
 
 const uniqueElement = function(numbers) {
   let uniqueNumbers = [];
-  for(let index = 0; index < numbers.length; index++){
-    if(!isUnique(numbers[index],uniqueNumbers)){
-      uniqueNumbers.push(numbers[index]);
+  for(let element of numbers){
+    if(!uniqueNumbers.includes(element)){
+      uniqueNumbers.push(element);
     }
   }
   return uniqueNumbers;
@@ -211,7 +188,6 @@ const diffrence = function(firstArrayElements,secondArrayElements) {
       }
     }
   }
-  
   return uniqueElement(diffrence);
 }
 
@@ -232,10 +208,7 @@ const zipElements = function(firstArrayElements,secondArrayElements) {
   let zippedElements = [];
   let threshold = Math.min(firstArrayElements.length,secondArrayElements.length);
   for(let index = 0; index < threshold; index++){
-    let indexElements = [];
-    indexElements.push(firstArrayElements[index]);
-    indexElements.push(secondArrayElements[index]);
-    zippedElements[index]=indexElements;
+    zippedElements[index] = [firstArrayElements[index],secondArrayElements[index]];
   }
   return zippedElements;
 }
@@ -252,22 +225,24 @@ const rotateElements = function(numbers,index) {
   return rotatedElements;
 }
 
-const partition = function(numbers,threshold) {
-  let numbersAboveThreshold = [];
-  let numbersBelowThreshold = [];
-  for(let element of numbers){
-    if(element > threshold){
-      numbersAboveThreshold.push(element);
-    }
-    if(element < threshold){
-      numbersBelowThreshold.push(element);
-    }
-  }
-  let partitiondElements = [numbersBelowThreshold,numbersAboveThreshold];
-  return partitiondElements;
+const aboveThreshold = function(threshold) {
+  return function(element){ return element > threshold};
 }
 
-selectEverySecondNumber([10,20,30]);
+const belowThreshold = function(threshold) {
+  return function(element) { return element < threshold};
+}
+
+const partition = function(numbers,threshold) {
+  let partitionedElements = [];
+  let numbersAboveThreshold = [];
+  let numbersBelowThreshold = [];
+  let aboveValues = aboveThreshold(threshold);
+  let belowValues = belowThreshold(threshold);
+  numbersAboveThreshold.push(numbers.filter(aboveValues));
+  numbersBelowThreshold.push(numbers.filter(belowValues));
+  return partitionedElements = numbersBelowThreshold.concat(numbersAboveThreshold);
+}
 
 exports.partition = partition;
 exports.rotateElements = rotateElements;
