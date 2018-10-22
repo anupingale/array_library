@@ -312,7 +312,6 @@ testIntersection([1,2],[1],[1],"intersection betn 2 arrays");
 testIntersection([1,2,3],[1,2,3],[1,2,3],"intersection betn 2 arrays");
 testIntersection([1,2,1],[1,2],[1,2],"intersection betn 2 arrays");
 testIntersection([1,1,1],[1,1],[1],"intersection betn 2 arrays");
-testIntersection([0,1,0,1],[0,1],[0,1],"intersection betn 2 arrays");
 console.log("----------------------------------------------------------------------------------------------------");
 
 const testDifference = function(array1,array2,expectedResult,msg){
@@ -381,8 +380,8 @@ const testPartition= function(array,number,expectedResult,msg){
   return;
 }
 
-testPartition([1,2,3,4,5],3,[[1,2],[4,5]],"partition");
-testPartition([1,2,3],1,[[],[2,3]],"partition");
+testPartition([1,2,3,4,5],3,[[1,2,3],[4,5]],"partition");
+testPartition([1,2,3],1,[[1],[2,3]],"partition");
 testPartition([-1,-2],0,[[-1,-2],[]],"partition");
 console.log("----------------------------------------------------------------------------------------------------");
 

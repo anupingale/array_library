@@ -171,18 +171,17 @@ const unionOfNumbers = function(firstArrayElements,secondArrayElements) {
   return uniqueElement(combineTwoArrays);
 }
 
-const intersection = function(firstArrayElements,secondArrayElements) {
-  let intersection = [];
-  let firstArray = uniqueElement(firstArrayElements);
-  let secondArray = uniqueElement(secondArrayElements);
-  for(let index = 0; index < firstArray.length; index++){
-    for(let index1 = 0; index1 < secondArray.length; index1++){
-      if(firstArray[index]==secondArray[index1]){
-        intersection.push(firstArray[index]);
-      }
+const checkIntersection = function(secondArrayElements) {
+  return function(number){
+    if(secondArrayElements.includes(number)){
+      return number;
     }
   }
-  return intersection;
+}
+
+const intersection = function(firstArrayElements,secondArrayElements) {
+  let intersection = checkIntersection(secondArrayElements);
+  return uniqueElement(firstArrayElements.filter(intersection));
 }
 
 const checkDifference = function(secondArrayElements) {
@@ -228,23 +227,20 @@ const rotateElements = function(givenArray,rotationFrequency) {
   return rotatedArray;
 }
 
-const aboveThreshold = function(threshold) {
-  return function(element){ return element > threshold};
-}
-
-const belowThreshold = function(threshold) {
-  return function(element) { return element < threshold};
+const createPartition = function(threshold) {
+  return function(array,element) {
+    if(element <= threshold){
+      array[0].push(element);
+      return array;
+    }
+    array[1].push(element);
+    return array;
+  }
 }
 
 const partition = function(numbers,threshold) {
-  let partitionedElements = [];
-  let numbersAboveThreshold = [];
-  let numbersBelowThreshold = [];
-  let aboveValues = aboveThreshold(threshold);
-  let belowValues = belowThreshold(threshold);
-  numbersAboveThreshold.push(numbers.filter(aboveValues));
-  numbersBelowThreshold.push(numbers.filter(belowValues));
-  return partitionedElements = numbersBelowThreshold.concat(numbersAboveThreshold);
+  let setThreshold = createPartition(threshold);
+  return numbers.reduce(setThreshold,[[],[]]);
 }
 
 exports.partition = partition;
