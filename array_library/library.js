@@ -26,20 +26,16 @@ const generateIndex = function(limit) {
   return indexes;
 }
 
-const selectNumbers = function(indexedNumbers) {
-  let selectedArray = [];
-  for(number of indexedNumbers){
-    if(isEven(number[1])){
-      selectedArray.push(number[0]);
-    }
+const selectAlternateNumber = function(state,element) {
+  let {elements,index} = state;
+  if(index % 2 == 0){
+    elements.push(element);
   }
-  return selectedArray;
+  return {elements : elements , index : index+1};
 }
 
-const selectEverySecondNumber = function(numbers) {
-  let limit = generateIndex(numbers.length);
-  let indexedNumbers = zipElements(numbers,limit);
-  return selectNumbers(indexedNumbers);
+const selectEverySecondNumber = function(numbers){
+  return numbers.reduce(selectAlternateNumber,{index : 0, elements : []}).elements;
 }
 
 const sum = function(number1,number2){
@@ -189,19 +185,16 @@ const intersection = function(firstArrayElements,secondArrayElements) {
   return intersection;
 }
 
-const diffrence = function(firstArrayElements,secondArrayElements) {
-  let diffrence  = [];
-  let firstArray = uniqueElement(firstArrayElements);
-  let secondArray = uniqueElement(secondArrayElements);
-  for(let index = 0; index < firstArray.length; index++){
-    for(let index1 = 0; index1 < secondArray.length; index1++){
-      if(firstArray[index]!=secondArray[index1]){
-        diffrence.push(firstArray[index]);
-      }
-    }
+const checkDifference = function(secondArrayElements) {
+  return function(element) {
+    return !secondArrayElements.includes(element);
   }
-  
-  return uniqueElement(diffrence);
+}
+
+const diffrence = function(firstArrayElements,secondArrayElements) {
+  let setDifference = checkDifference(secondArrayElements);
+  let differenceSet = firstArrayElements.filter(setDifference);
+  return uniqueElement(differenceSet);
 }
 
 const isSubset = function(array,subsetArray) {
@@ -226,16 +219,13 @@ const zipElements = function(firstArrayElements,secondArrayElements) {
   return zippedElements;
 }
 
-const rotateElements = function(numbers,index) {
-  let rotatedElements = [];
-  let shiftBy = index%numbers.length;
-  for(let index = shiftBy; index < numbers.length; index++) {
-    rotatedElements.push(numbers[index]);
+const rotateElements = function(givenArray,rotationFrequency) {
+  let rotatedArray = [];
+  for(let index=0; index < givenArray.length; index++){
+    indexOfGivenArray = (index + rotationFrequency) % (givenArray.length);
+    rotatedArray[index] = givenArray[indexOfGivenArray];
   }
-  for(let index = 0; index < shiftBy; index++) {
-    rotatedElements.push(numbers[index]);
-  }
-  return rotatedElements;
+  return rotatedArray;
 }
 
 const aboveThreshold = function(threshold) {
