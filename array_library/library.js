@@ -50,7 +50,7 @@ const sumOfNumbers = function(numbers) {
   return numbers.reduce(sum,0);
 }
 
-const reverseFibonacciSeries = function(limit) {
+const fibonacciSeries = function(limit) {
   let firstNumber = 0;
   let secondNumber = 1;
   let index = 2;
@@ -58,11 +58,15 @@ const reverseFibonacciSeries = function(limit) {
   while(index <= limit){
     let thirdNumber = firstNumber+secondNumber;
     firstNumber = secondNumber;
-    fibonacciSeries.unshift(secondNumber);
+    fibonacciSeries.push(secondNumber);
     secondNumber = thirdNumber;
     index++;
   }
   return fibonacciSeries;
+}
+
+const reverseFibonacciSeries = function(limit) {
+  return fibonacciSeries(limit).reverse();
 }
 
 const greatestNumber = function(numbers) {
@@ -115,12 +119,20 @@ const countNumbersBelowThreshold = function(limit,numbers) {
   return threshold.belowThreshold.length;
 }
 
-const indexOfNumber = function(value,numbers) {
-  for(let index in numbers) {
-    if(value == numbers[index]){
-      return +index;
+const checkIndex = function(value) {
+  return function(number) {
+    if(number[0] == value) {
+      return number[1];
     }
   }
+}
+
+const indexOfNumber = function(value,numbers) {
+  let index = generateIndex(numbers.length);
+  let indexedNumbers = zipElements(numbers,index);
+  let checkValue = checkIndex(value);
+  let valueOfIndex = indexedNumbers.filter(checkValue);
+  return valueOfIndex[0][1];
 }
 
 const isAsending = function(numbers) {
@@ -188,6 +200,7 @@ const diffrence = function(firstArrayElements,secondArrayElements) {
       }
     }
   }
+  
   return uniqueElement(diffrence);
 }
 
