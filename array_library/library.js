@@ -46,23 +46,16 @@ const sumOfNumbers = function(numbers) {
   return numbers.reduce(sum,0);
 }
 
-const fibonacciSeries = function(limit) {
-  let firstNumber = 0;
-  let secondNumber = 1;
-  let index = 2;
-  let fibonacciSeries=[firstNumber];
-  while(index <= limit){
-    let thirdNumber = firstNumber+secondNumber;
-    firstNumber = secondNumber;
-    fibonacciSeries.push(secondNumber);
-    secondNumber = thirdNumber;
-    index++;
+const generateFibonccciSeries = function (number){
+  if(number<=2){
+    return [0,1];
   }
-  return fibonacciSeries;
+  result = generateFibonccciSeries(number-1);
+  return result.concat([result[number-2]+result[number-3]]);
 }
 
 const reverseFibonacciSeries = function(limit) {
-  return fibonacciSeries(limit).reverse();
+  return generateFibonccciSeries(limit).reverse();
 }
 
 const greatestNumber = function(numbers) {
@@ -89,30 +82,30 @@ const countOddNumbers = function(numbers) {
   return extractOddNumbers(numbers).length;
 }
 
-const segregateAboveThreshold = function(threshold,number){
-  if(number > threshold.threshold){
-    threshold.aboveThreshold.push(number);
+const checkNumberAboveThreshold = function(threshold) {
+  return function(element) {
+    if(element >= threshold) {
+        return element;
+    }
   }
-  return threshold;
 }
 
 const countNumbersAboveThreshold = function(limit,numbers) {
-  let threshold = {threshold : limit, aboveThreshold : []};
-   numbers.reduce(segregateAboveThreshold,threshold);
-  return threshold.aboveThreshold.length;
+  let threshold = checkNumberAboveThreshold(limit);
+  return numbers.filter(threshold).length;
 }
 
-const segregateBelowThreshold = function(threshold,number){
-  if(number < threshold.threshold){
-    threshold.belowThreshold.push(number);
+const checkNumberBelowThreshold = function(threshold) {
+  return function(element) {
+    if(element < threshold) {
+        return element;
+    }
   }
-  return threshold;
 }
 
 const countNumbersBelowThreshold = function(limit,numbers) {
-  let threshold = {threshold : limit, belowThreshold : []};
-  numbers.reduce(segregateBelowThreshold,threshold);
-  return threshold.belowThreshold.length;
+  let threshold = checkNumberBelowThreshold(limit);
+  return numbers.filter(threshold).length;
 }
 
 const checkIndex = function(value) {
@@ -211,13 +204,8 @@ const zipElements = function(firstArrayElements,secondArrayElements) {
   return zippedElements;
 }
 
-const rotateElements = function(givenArray,rotationFrequency) {
-  let rotatedArray = [];
-  for(let index=0; index < givenArray.length; index++){
-    indexOfGivenArray = (index + rotationFrequency) % (givenArray.length);
-    rotatedArray[index] = givenArray[indexOfGivenArray];
-  }
-  return rotatedArray;
+const rotateElements = function(source,rotationFrequency) {
+  return source.slice(rotationFrequency,source.length).concat(source.slice(0,rotationFrequency));
 }
 
 const createPartition = function(threshold) {

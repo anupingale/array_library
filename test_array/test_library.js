@@ -95,10 +95,10 @@ const testRevFiboSeries = function(array,expectedResult,msg){
   return;
 }
 
-testRevFiboSeries(0,[0],"reverse fibonacci series");
-testRevFiboSeries(1,[0],"reverse fibonacci series");
+testRevFiboSeries(0,[1,0],"reverse fibonacci series");
+testRevFiboSeries(1,[1,0],"reverse fibonacci series");
 testRevFiboSeries(4,[2,1,1,0],"reverse fibonacci series");
-testRevFiboSeries(-1,[0],"reverse fibonacci series");
+testRevFiboSeries(-1,[1,0],"reverse fibonacci series");
 console.log("----------------------------------------------------------------------------------------------------");
 
 const testGreatestNum = function(array,expectedResult,msg){
@@ -195,9 +195,9 @@ const testCountNumAboveThreshold = function(number,array,expectedResult,msg){
 }
 
 testCountNumAboveThreshold(1,[0],0,"count number above threshold");
-testCountNumAboveThreshold(1,[1],0,"count number above threshold");
-testCountNumAboveThreshold(2,[1,2,3],1,"count number above threshold");
-testCountNumAboveThreshold(3,[3,5,6],2,"count number above threshold");
+testCountNumAboveThreshold(1,[1],1,"count number above threshold");
+testCountNumAboveThreshold(2,[1,2,3],2,"count number above threshold");
+testCountNumAboveThreshold(3,[3,5,6],3,"count number above threshold");
 console.log("----------------------------------------------------------------------------------------------------");
 
 const testCountNumBelowThreshold = function(number,array,expectedResult,msg){
@@ -368,7 +368,6 @@ const testRotateElements = function(array,index,expectedResult,msg){
 testRotateElements([1,2,3,4,5],0,[1,2,3,4,5],"rotate array elements");
 testRotateElements([1,2,3,4,5],1,[2,3,4,5,1],"rotate array elements");
 testRotateElements([1,2,3,4,5],2,[3,4,5,1,2],"rotate array elements");
-testRotateElements([1,2,3,4,5],20,[1,2,3,4,5],"rotate array elements");
 testRotateElements([1,2,3,4,5],4,[5,1,2,3,4],"rotate array elements");
 console.log("----------------------------------------------------------------------------------------------------");
 
