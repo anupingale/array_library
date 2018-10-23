@@ -65,11 +65,11 @@ const smallestNumber = function(numbers) {
   return Math.min.apply(null,numbers);
 }
 
-const average = function(numbers) {
+const calculateAverage = function(numbers) {
   return sumOfNumbers(numbers)/numbers.length;
 }
 
-const lengthOfNames = function(names){
+const mapLength = function(names){
   return names.map(name => name.length);
 }
 
@@ -83,9 +83,7 @@ const countOddNumbers = function(numbers) {
 
 const checkNumberAboveThreshold = function(threshold) {
   return function(element) {
-    if(element >= threshold) {
-      return element;
-    }
+    return element >= threshold
   }
 }
 
@@ -96,9 +94,7 @@ const countNumbersAboveThreshold = function(limit,numbers) {
 
 const checkNumberBelowThreshold = function(threshold) {
   return function(element) {
-    if(element < threshold) {
-        return element;
-    }
+    return element < threshold
   }
 }
 
@@ -115,20 +111,20 @@ const checkIndex = function(value) {
   }
 }
 
-const indexOfNumber = function(value,numbers) {
+const findIndex = function(value,numbers) {
   let indexedNumbers = zipElements(numbers,generateIndex(numbers.length));
   let checkValue = checkIndex(value);
   return valueOfIndex = indexedNumbers.filter(checkValue)[0][1];
 }
 
-const asending = function(state,number) {
+const checkAsending = function(state,number) {
   let {condition,element} = state;
   condition = (condition == true && element <= number)?true:false;
   return {condition : condition, element : number}
 }
 
 const isAsending = function(numbers){
-  return numbers.reduce(asending,{condition : true, element : numbers[0]}).condition;;
+  return numbers.reduce(checkAsending,{condition : true, element : numbers[0]}).condition;;
 }
 
 const isDecending = function(numbers) {
@@ -215,12 +211,12 @@ const createPartition = function(threshold) {
   }
 }
 
-const partition = function(numbers,threshold) {
+const getPartition = function(numbers,threshold) {
   let setThreshold = createPartition(threshold);
   return numbers.reduce(setThreshold,[[],[]]);
 }
 
-exports.partition = partition;
+exports.getPartition = getPartition;
 exports.rotateElements = rotateElements;
 exports.zipElements = zipElements;
 exports.isSubset = isSubset;
@@ -232,13 +228,13 @@ exports.greatestNumber = greatestNumber;
 exports.extractDigitsIntoArray = extractDigitsIntoArray;
 exports.isDecending = isDecending;
 exports.isAsending = isAsending;
-exports.indexOfNumber = indexOfNumber;
+exports.findIndex = findIndex;
 exports.countNumbersBelowThreshold = countNumbersBelowThreshold;
 exports.countNumbersAboveThreshold = countNumbersAboveThreshold;
 exports.countOddNumbers = countOddNumbers;
 exports.countEvenNumbers = countEvenNumbers;
-exports.lengthOfNames = lengthOfNames;
-exports.average = average;
+exports.mapLength = mapLength;
+exports.calculateAverage = calculateAverage;
 exports.smallestNumber = smallestNumber;
 exports.uniqueNumbersgreatestNumber = greatestNumber;
 exports.reverseFibonacciSeries = reverseFibonacciSeries;

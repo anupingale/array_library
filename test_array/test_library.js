@@ -1,7 +1,7 @@
 const library = require("/Users/pannapur/Projects/assignments/javascript_assignment/array_practice/array_library/library.js");
 const myLibrary = require("/Users/pannapur/bin/myLibrary.js");
 const {testLogs} = myLibrary;
-const {generateIndex, partition, rotateElements, zipElements, isSubset, difference, intersection, unionOfNumbers, uniqueElement, extractDigitsIntoArray, isDecending, isAsending, indexOfNumber, countNumbersBelowThreshold, countNumbersAboveThreshold, countEvenNumbers, countOddNumbers, lengthOfNames, average, extractOddNumbers, greatestNumber, extractEvenNumbers, sumOfNumbers, reverseNumbers, smallestNumber, selectEverySecondNumber, reverseFibonacciSeries, checkGreater} = library;
+const {generateIndex, getPartition, rotateElements, zipElements, isSubset, difference, intersection, unionOfNumbers, uniqueElement, extractDigitsIntoArray, isDecending, isAsending, findIndex, countNumbersBelowThreshold, countNumbersAboveThreshold, countEvenNumbers, countOddNumbers, mapLength, calculateAverage, extractOddNumbers, greatestNumber, extractEvenNumbers, sumOfNumbers, reverseNumbers, smallestNumber, selectEverySecondNumber, reverseFibonacciSeries, checkGreater} = library;
 const assert = require("assert");
 
 console.log("----------------------------------------------------------------------------------------------------\n");
@@ -130,22 +130,22 @@ testSmallestNum([-2,-3,-5],-5,"smallest number");
 console.log("----------------------------------------------------------------------------------------------------");
 
 const testAverage = function(array,expectedResult,msg){
-  let actualResult = average(array);
+  let actualResult = calculateAverage(array);
   let args = [array];
   testLogs(args,actualResult,expectedResult,msg);
   assert.deepEqual(actualResult,expectedResult);
   return;
 }
 
-testAverage([1],1,"average of numbers");
-testAverage([0,1,2],1,"average of numbers");
-testAverage([1,3],2,"average of numbers");
-testAverage([1,2],1.5,"average of numbers");
-testAverage([-1,-3],-2,"average of numbers");
+testAverage([1],1,"calculateAverage of numbers");
+testAverage([0,1,2],1,"calculateAverage of numbers");
+testAverage([1,3],2,"calculateAverage of numbers");
+testAverage([1,2],1.5,"calculateAverage of numbers");
+testAverage([-1,-3],-2,"calculateAverage of numbers");
 console.log("----------------------------------------------------------------------------------------------------");
 
 const testLengthOfNames = function(array,expectedResult,msg){
-  let actualResult = lengthOfNames(array);
+  let actualResult = mapLength(array);
   let args = [array];
   testLogs(args,actualResult,expectedResult,msg);
   assert.deepEqual(actualResult,expectedResult);
@@ -215,7 +215,7 @@ testCountNumBelowThreshold(3,[3,2,1],2,"count number below threshold");
 console.log("----------------------------------------------------------------------------------------------------");
 
 const testIndexOfNumber = function(number,array,expectedResult,msg){
-  let actualResult = indexOfNumber(number,array);
+  let actualResult = findIndex(number,array);
   let args = [array];
   testLogs(args,actualResult,expectedResult,msg);
   assert.deepEqual(actualResult,expectedResult);
@@ -371,16 +371,16 @@ testRotateElements([1,2,3,4,5],4,[5,1,2,3,4],"rotate array elements");
 console.log("----------------------------------------------------------------------------------------------------");
 
 const testPartition= function(array,number,expectedResult,msg){
-  let actualResult = partition(array,number);
+  let actualResult = getPartition(array,number);
   let args = [array,number];
   testLogs(args,actualResult,expectedResult,msg);
   assert.deepEqual(actualResult,expectedResult);
   return;
 }
 
-testPartition([1,2,3,4,5],3,[[1,2,3],[4,5]],"partition");
-testPartition([1,2,3],1,[[1],[2,3]],"partition");
-testPartition([-1,-2],0,[[-1,-2],[]],"partition");
+testPartition([1,2,3,4,5],3,[[1,2,3],[4,5]],"getPartition");
+testPartition([1,2,3],1,[[1],[2,3]],"getPartition");
+testPartition([-1,-2],0,[[-1,-2],[]],"getPartition");
 console.log("----------------------------------------------------------------------------------------------------");
 
 const testGenerateNumbers = function(limit,expectedResult,msg){
