@@ -19,11 +19,7 @@ const extractEvenNumbers = function(numbers) {
 }
 
 const generateIndex = function(limit) {
-  let indexes = [];
-  for(let index = 0; index < limit; index++){
-    indexes.push(index);
-  }
-  return indexes;
+  return Array.apply(null,{length:limit}).map(Number.call, Number);
 }
 
 const selectAlternateNumber = function(state,element) {
