@@ -339,7 +339,7 @@ const testIsSubset = function(array1,array2,expectedResult,msg){
 
 testIsSubset([10,20,30],[10],true,"check subset");
 testIsSubset([10,20,30],[10,30,20],true,"check subset");
-testIsSubset([10,10],[],false,"check subset");
+testIsSubset([10,10],[20],false,"check subset");
 testIsSubset([1,2],[3,4],false,"check subset");
 console.log("----------------------------------------------------------------------------------------------------");
 

@@ -196,17 +196,10 @@ const diffrence = function(firstArrayElements,secondArrayElements) {
   return uniqueElement(differenceSet);
 }
 
-const isSubset = function(array,subsetArray) {
-  let count = 0;
-  for(let element of subsetArray){
-    if(array.includes(element)){
-      count++;
-    }
-    if(count == subsetArray.length){
-      return true;
-    }
-  }
-  return false;
+const isSubset = function(list, subset){
+  return subset.every(function(element){
+    return list.includes(element);
+  });
 }
 
 const zipElements = function(firstArrayElements,secondArrayElements) {
