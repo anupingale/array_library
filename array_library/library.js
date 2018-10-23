@@ -113,18 +113,16 @@ const countNumbersBelowThreshold = function(limit,numbers) {
 
 const checkIndex = function(value) {
   return function(number) {
-    if(number[0] == value) {
+    while(number[0] == value) {
       return number[1];
     }
   }
 }
 
 const indexOfNumber = function(value,numbers) {
-  let index = generateIndex(numbers.length);
-  let indexedNumbers = zipElements(numbers,index);
+  let indexedNumbers = zipElements(numbers,generateIndex(numbers.length));
   let checkValue = checkIndex(value);
-  let valueOfIndex = indexedNumbers.filter(checkValue);
-  return valueOfIndex[0][1];
+  return valueOfIndex = indexedNumbers.filter(checkValue)[0][1];
 }
 
 const isAsending = function(numbers) {
@@ -148,18 +146,19 @@ const isDecending = function(numbers) {
 }
 
 const extractDigitsIntoArray = function(number) {
-  let digitArray =  number.toString().split("");
+  let digitArray = number.toString().split("");
   return digitArray.map(number => +number);
 }
 
-const uniqueElement = function(numbers) {
-  let uniqueNumbers = [];
-  for(let element of numbers){
-    if(!uniqueNumbers.includes(element)){
-      uniqueNumbers.push(element);
-    }
+const checkUnique = function(unique,element) {
+  if(!unique.includes(element)) {
+    unique.push(element);
   }
-  return uniqueNumbers;
+  return unique;
+}
+
+const uniqueElement = function(numbers) {
+  return numbers.reduce(checkUnique,[]);
 }
 
 const unionOfNumbers = function(firstArrayElements,secondArrayElements) {

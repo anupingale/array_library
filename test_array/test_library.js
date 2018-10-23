@@ -276,7 +276,6 @@ const testUniqueElements = function(array,expectedResult,msg){
   assert.deepEqual(actualResult,expectedResult);
   return;
 }
-
 testUniqueElements([],[],"extract unique nums in array");
 testUniqueElements([10],[10],"extract unique nums in array");
 testUniqueElements([10,20,20,10],[10,20],"extract unique nums in array");
@@ -323,7 +322,7 @@ const testDifference = function(array1,array2,expectedResult,msg){
 }
 
 testDifference([],[],[],"difference betn arrays");
-testDifference([1],[2],[1],"diference betn arrays");
+testDifference([1],[2],[1],"difference betn arrays");
 testDifference([1,1],[2],[1],"difference betn arrays");
 testDifference([1,1,1],[1],[],"difference betn arrays");
 testDifference([1,2,3],[4,5],[1,2,3],"difference betn arrays")
