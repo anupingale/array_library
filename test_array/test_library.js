@@ -1,7 +1,7 @@
 const library = require("/Users/pannapur/Projects/assignments/javascript_assignment/array_practice/array_library/library.js");
 const myLibrary = require("/Users/pannapur/bin/myLibrary.js");
 const {testLogs} = myLibrary;
-const {generateIndex, partition, rotateElements, zipElements, isSubset, diffrence, intersection, unionOfNumbers, uniqueElement, extractDigitsIntoArray, isDecending, isAsending, indexOfNumber, countNumbersBelowThreshold, countNumbersAboveThreshold, countEvenNumbers, countOddNumbers, lengthOfNames, average, extractOddNumbers, greatestNumber, extractEvenNumbers, sumOfNumbers, reverseNumbers, smallestNumber, selectEverySecondNumber, reverseFibonacciSeries, checkGreater} = library;
+const {generateIndex, partition, rotateElements, zipElements, isSubset, difference, intersection, unionOfNumbers, uniqueElement, extractDigitsIntoArray, isDecending, isAsending, indexOfNumber, countNumbersBelowThreshold, countNumbersAboveThreshold, countEvenNumbers, countOddNumbers, lengthOfNames, average, extractOddNumbers, greatestNumber, extractEvenNumbers, sumOfNumbers, reverseNumbers, smallestNumber, selectEverySecondNumber, reverseFibonacciSeries, checkGreater} = library;
 const assert = require("assert");
 
 console.log("----------------------------------------------------------------------------------------------------\n");
@@ -95,10 +95,10 @@ const testRevFiboSeries = function(array,expectedResult,msg){
   return;
 }
 
-testRevFiboSeries(0,[1,0],"reverse fibonacci series");
-testRevFiboSeries(1,[1,0],"reverse fibonacci series");
+testRevFiboSeries(0,[],"reverse fibonacci series");
+testRevFiboSeries(1,[0],"reverse fibonacci series");
 testRevFiboSeries(4,[2,1,1,0],"reverse fibonacci series");
-testRevFiboSeries(-1,[1,0],"reverse fibonacci series");
+testRevFiboSeries(-1,[],"reverse fibonacci series");
 console.log("----------------------------------------------------------------------------------------------------");
 
 const testGreatestNum = function(array,expectedResult,msg){
@@ -315,7 +315,7 @@ testIntersection([1,1,1],[1,1],[1],"intersection betn 2 arrays");
 console.log("----------------------------------------------------------------------------------------------------");
 
 const testDifference = function(array1,array2,expectedResult,msg){
-  let actualResult = diffrence(array1,array2);
+  let actualResult = difference(array1,array2);
   let args = [array1,array2];
   testLogs(args,actualResult,expectedResult,msg);
   assert.deepEqual(actualResult,expectedResult);
@@ -324,7 +324,7 @@ const testDifference = function(array1,array2,expectedResult,msg){
 
 testDifference([],[],[],"difference betn arrays");
 testDifference([1],[2],[1],"diference betn arrays");
-testDifference([1,1],[2],[1],"diffrence betn arrays");
+testDifference([1,1],[2],[1],"difference betn arrays");
 testDifference([1,1,1],[1],[],"difference betn arrays");
 testDifference([1,2,3],[4,5],[1,2,3],"difference betn arrays")
 console.log("----------------------------------------------------------------------------------------------------");

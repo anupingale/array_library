@@ -3,7 +3,7 @@ const isOdd = function(number) {
 }
 
 const isEven = function(number){
-  return number%2==0;
+  return !isOdd(number);
 }
 
 const reverseNumbers = function(numbers){
@@ -46,16 +46,19 @@ const sumOfNumbers = function(numbers) {
   return numbers.reduce(sum,0);
 }
 
-const generateFibonccciSeries = function (number){
-  if(number<=2){
-    return [0,1];
+const generateFibonacciSeries = function(number){
+  if(number<=1){
+    return number;
   }
-  result = generateFibonccciSeries(number-1);
-  return result.concat([result[number-2]+result[number-3]]);
+  return generateFibonacciSeries(number-1)+generateFibonacciSeries(number-2); 
 }
 
 const reverseFibonacciSeries = function(limit) {
-  return generateFibonccciSeries(limit).reverse();
+  let fibo = [];
+  for(let index = 0; index < limit; index++){
+    fibo.push(generateFibonacciSeries(index));
+  }
+  return fibo.reverse();
 }
 
 const greatestNumber = function(numbers) {
@@ -183,16 +186,21 @@ const checkDifference = function(secondArrayElements) {
   }
 }
 
-const diffrence = function(firstArrayElements,secondArrayElements) {
+const difference = function(firstArrayElements,secondArrayElements) {
   let setDifference = checkDifference(secondArrayElements);
   let differenceSet = firstArrayElements.filter(setDifference);
   return uniqueElement(differenceSet);
 }
 
-const isSubset = function(list, subset){
-  return subset.every(function(element){
+const checkSubset = function(list) {
+  return function(element) {
     return list.includes(element);
-  });
+  }
+}
+
+const isSubset = function(list, subset) {
+  let checkList = checkSubset(list);
+  return subset.every(checkList);
 }
 
 const zipElements = function(firstArrayElements,secondArrayElements) {
@@ -228,7 +236,7 @@ exports.partition = partition;
 exports.rotateElements = rotateElements;
 exports.zipElements = zipElements;
 exports.isSubset = isSubset;
-exports.diffrence = diffrence;
+exports.difference = difference;
 exports.intersection = intersection;
 exports.unionOfNumbers = unionOfNumbers;
 exports.uniqueElement = uniqueElement;
