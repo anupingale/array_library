@@ -188,7 +188,7 @@ console.log("-------------------------------------------------------------------
 
 const testCountNumAboveThreshold = function(number,array,expectedResult,msg){
   let actualResult = countNumbersAboveThreshold(number,array);
-  let args = [array];
+  let args = [number,array];
   testLogs(args,actualResult,expectedResult,msg);
   assert.deepEqual(actualResult,expectedResult);
   return;
@@ -394,14 +394,3 @@ testGenerateNumbers(1,[0],"indexes");
 testGenerateNumbers(5,[0,1,2,3,4],"indexes");
 testGenerateNumbers(0,[],"indexes");
 console.log("----------------------------------------------------------------------------------------------------");
-
-//const testCheckGreater = function(number1,number2,expectedResult,msg){
-//  let actualResult = checkGreater(number1,number2);
-//  let args = [number1,number2];
-//  testLogs(args,actualResult,expectedResult,msg);
-//  assert.deepEqual(actualResult,expectedResult);
-//}
-//
-//testCheckGreater(10,20,true,"greater of two");
-//testCheckGreater(10,5,false,"greater of two");
-//

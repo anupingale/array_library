@@ -88,7 +88,7 @@ const countOddNumbers = function(numbers) {
 const checkNumberAboveThreshold = function(threshold) {
   return function(element) {
     if(element >= threshold) {
-        return element;
+      return element;
     }
   }
 }
@@ -113,7 +113,7 @@ const countNumbersBelowThreshold = function(limit,numbers) {
 
 const checkIndex = function(value) {
   return function(number) {
-    while(number[0] == value) {
+    if(number[0] == value) {
       return number[1];
     }
   }
@@ -125,29 +125,22 @@ const indexOfNumber = function(value,numbers) {
   return valueOfIndex = indexedNumbers.filter(checkValue)[0][1];
 }
 
-const isAsending = function(numbers) {
-  let isAsending = true;
-  for(let index = 0; index < numbers.length-1; index++){
-    if(numbers[index] > numbers[index+1]){
-      isAsending = false; 
-    }
-  }
-  return isAsending;
+const asending = function(state,number) {
+  let {condition,element} = state;
+  condition = (condition == true && element <= number)?true:false;
+  return {condition : condition, element : number}
+}
+
+const isAsending = function(numbers){
+  return numbers.reduce(asending,{condition : true, element : numbers[0]}).condition;;
 }
 
 const isDecending = function(numbers) {
-  let isDecending = true;
-  for(let index = 0; index < numbers.length; index++){
-    if(numbers[index] < numbers[index+1]){
-      isDecending = false ; 
-    }
-  }
-  return isDecending;
+  return isAsending(numbers.reverse());
 }
 
 const extractDigitsIntoArray = function(number) {
-  let digitArray = number.toString().split("");
-  return digitArray.map(number => +number);
+  return number.toString().split("").map(number => +number);
 }
 
 const checkUnique = function(unique,element) {
@@ -211,8 +204,8 @@ const zipElements = function(firstArrayElements,secondArrayElements) {
   return zippedElements;
 }
 
-const rotateElements = function(source,rotationFrequency) {
-  return source.slice(rotationFrequency,source.length).concat(source.slice(0,rotationFrequency));
+const rotateElements = function(source,index) {
+  return source.slice(index,source.length).concat(source.slice(0,index));
 }
 
 const createPartition = function(threshold) {
