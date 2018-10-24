@@ -43,12 +43,12 @@ const testExtractOddNum = function(array,expectedResult,msg){
   return;
 }
 
-testExtractOddNum([],[],"extract odd");
-testExtractOddNum([1],[1],"extract odd");
-testExtractOddNum([ 1, 2 ],[1],"extract odd");
-testExtractOddNum([ 1, 2, 3, 4, 5, 6, 7, 8 ],[ 1, 3, 5, 7 ],"extract odd");
-testExtractOddNum([0],[],"extract odd");
-testExtractOddNum([-1],[-1],"extract odd");
+testExtractOddNum([],[],"checking with empty array");
+testExtractOddNum([1],[1],"checking with odd number");
+testExtractOddNum([ 1, 2 ],[1],"checking with odd and even");
+testExtractOddNum([ 1, 2, 3, 4, 5, 6, 7, 8 ],[ 1, 3, 5, 7 ],"checking with multiple input");
+testExtractOddNum([0],[],"checking with zero as input");
+testExtractOddNum([-1],[-1],"checking with negative number");
 console.log("----------------------------------------------------------------------------------------------------");
 
 const testExtractEvenNum = function(array,expectedResult,msg){
