@@ -81,9 +81,7 @@ testSumOfNums([1,-5],-4,"add positive and negative num");
 
 const testReverseNum = function(inputList,expected,message){
   let actual = reverseNumbers(inputList);
-  let args = [inputList];
-  logTest(args,actual,expected,message);
-  assert.deepStrictEqual(actual,expected);
+  compareResult(inputList,actual,expected,message);
   return;
 }
 
