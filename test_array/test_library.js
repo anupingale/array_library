@@ -67,9 +67,7 @@ testExtractEvenNum([ 1, 2, 3, 4, 5, 6],[ 2, 4, 6],"checking with multiple input"
 
 const testSumOfNums = function(inputList,expected,message){
   let actual = sumOfNumbers(inputList);
-  let args = [inputList];
-  logTest(args,actual,expected,message);
-  assert.deepStrictEqual(actual,expected);
+  compareResult(inputList,actual,expected,message);
   return;
 }
 
