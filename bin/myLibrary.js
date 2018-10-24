@@ -21,6 +21,7 @@ const testLogs = function(args,actualResult,expectedResult,msg) {
   log = log + justify(20,expectedResult.toString()) + "|";
   incrementTestNumber();
   console.log(log);
+  console.log("----------------------------------------------------------------------------------------------------");
 }
 
 exports.testLogs = testLogs;
