@@ -56,13 +56,14 @@ const testExtractEvenNum = function(array,expectedResult,msg){
   return;
 }
 
-testExtractEvenNum([],[],"extract even");
-testExtractEvenNum([2],[2],"extract even");
-testExtractEvenNum([1],[],"extract even");
-testExtractEvenNum([-1],[],"extract even");
-testExtractEvenNum([-2],[-2],"extract even");
-testExtractEvenNum([ 1, 2, 3, 4, 5, 6],[ 2, 4, 6],"extract even");
-testExtractEvenNum([0],[0],"extract even");
+testExtractEvenNum([1],[],"checking with one odd number");
+testExtractEvenNum([-1],[],"checking with negative odd");
+testExtractEvenNum([-2],[-2],"checking with negative even");
+testExtractEvenNum([],[],"checking with empty array");
+testExtractEvenNum([2],[2],"checking with one even number");
+testExtractEvenNum([2,1],[2],"checking with even and odd");
+testExtractEvenNum([1,2],[2],"checking with odd and even");
+testExtractEvenNum([ 1, 2, 3, 4, 5, 6],[ 2, 4, 6],"checking with multiple input");
 
 const testSumOfNums = function(array,expectedResult,msg){
   let actualResult = sumOfNumbers(array);
@@ -72,8 +73,8 @@ const testSumOfNums = function(array,expectedResult,msg){
   return;
 }
 
-testSumOfNums([1],1,"sum");
 testSumOfNums([],0,"sum");
+testSumOfNums([1],1,"sum");
 testSumOfNums([1,2],3,"sum");
 testSumOfNums([0,5],5,"sum");
 testSumOfNums([-1,3],2,"sum");
@@ -128,7 +129,7 @@ const testGreatestNum = function(array,expectedResult,msg){
 }
 
 testGreatestNum([1],1,"greatest numbers");
-testGreatestNum([1,2,3],3,"greatest numbers");
+testGreatestNum([1,3],3,"greatest numbers");
 testGreatestNum([5,-2,0],5,"greatest numbers");
 testGreatestNum([-2,-3,-5],-2,"greatest numbers");
 
