@@ -1,7 +1,34 @@
-const library = require("/Users/pannapur/Projects/assignments/javascript_assignment/array_practice/array_library/library.js");
-const myLibrary = require("/Users/pannapur/bin/myLibrary.js");
+const library = require("../array_library/library.js");
+const myLibrary = require("../bin/myLibrary.js");
 const {testLogs} = myLibrary;
-const {generateIndex, getPartition, rotateElements, zipElements, isSubset, difference, intersection, unionOfNumbers, uniqueElement, extractDigitsIntoArray, isDecending, isAsending, findIndex, countNumbersBelowThreshold, countNumbersAboveThreshold, countEvenNumbers, countOddNumbers, mapLength, calculateAverage, extractOddNumbers, greatestNumber, extractEvenNumbers, sumOfNumbers, reverseNumbers, smallestNumber, selectEverySecondNumber, reverseFibonacciSeries, checkGreater} = library;
+const {generateIndex, 
+  getPartition, 
+  rotateElements, 
+  zipElements, 
+  isSubset, 
+  difference, 
+  intersection, 
+  unionOfNumbers, 
+  uniqueElement, 
+  extractDigitsIntoArray, 
+  isDecending, 
+  isAsending, 
+  findIndex, 
+  countNumbersBelowThreshold, 
+  countNumbersAboveThreshold, 
+  countEvenNumbers, 
+  countOddNumbers, 
+  mapLength, 
+  calculateAverage, 
+  extractOddNumbers, 
+  greatestNumber, 
+  extractEvenNumbers, 
+  sumOfNumbers, 
+  reverseNumbers, 
+  smallestNumber, 
+  selectEverySecondNumber, 
+  reverseFibonacciSeries, 
+  checkGreater} = library;
 const assert = require("assert");
 
 console.log("----------------------------------------------------------------------------------------------------\n");
