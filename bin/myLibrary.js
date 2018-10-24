@@ -14,7 +14,7 @@ const getSerialNumber = function() {
   return testNumber.number;
 }
 
-const testLogs = function(args,actualResult,expectedResult,msg) {
+const logTest = function(args,actualResult,expectedResult,msg) {
   let log = justify(5,getSerialNumber().toString()) + "|" + justify(30,msg) + "|";
   log = log + justify(20,args.toString()) + "|";
   log = log + justify(20,actualResult.toString()) + "|";
@@ -24,4 +24,4 @@ const testLogs = function(args,actualResult,expectedResult,msg) {
   console.log("----------------------------------------------------------------------------------------------------");
 }
 
-exports.testLogs = testLogs;
+exports.logTest = logTest;
