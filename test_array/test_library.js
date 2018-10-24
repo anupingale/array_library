@@ -52,9 +52,7 @@ testExtractOddNum([1,2,3,4,5,6,7,8],[1,3,5,7],"checking with multiple input");
 
 const testExtractEvenNum = function(inputList,expected,message){
   let actual = extractEvenNumbers(inputList);
-  let args = [inputList];
-  logTest(args,actual,expected,message);
-  assert.deepStrictEqual(actual,expected);
+  compareResult(inputList,actual,expected,message);
   return;
 }
 
