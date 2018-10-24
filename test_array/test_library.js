@@ -121,7 +121,7 @@ const testGreatestNum = function(inputList,expected,message){
 testGreatestNum([1],1,"greatest among 1 number");
 testGreatestNum([1,3],3,"greatest of 2 numbers");
 testGreatestNum([5,-2,0],5,"checked with +ve and -ve num");
-testGreatestNum([-2,-3,-5],-2,"check with -ve numbers");
+testGreatestNum([-2,-3,-5],-2,"check with -ve number");
 
 const testSmallestNum = function(inputList,expected,message){
   let actual = smallestNumber(inputList);
@@ -129,10 +129,10 @@ const testSmallestNum = function(inputList,expected,message){
   return;
 }
 
-testSmallestNum([1],1,"smallest number");
-testSmallestNum([1,2,3],1,"smallest number");
-testSmallestNum([5,-2,0],-2,"smallest number");
-testSmallestNum([-2,-3,-5],-5,"smallest number");
+testSmallestNum([1],1,"smallest among 1 number");
+testSmallestNum([1,2,3],1,"smallest among 3");
+testSmallestNum([5,-2,0],-2,"smallest among -ve num");
+testSmallestNum([-2,-3,-5],-5,"smallest among -ve num");
 
 const testAverage = function(inputList,expected,message){
   let actual = calculateAverage(inputList);
