@@ -119,7 +119,7 @@ const findIndex = function(value,numbers) {
 
 const checkAsending = function(state,number) {
   let {condition,element} = state;
-  condition = (condition == true && element <= number)?true:false;
+  condition = (condition && element <= number);
   return {condition : condition, element : number}
 }
 
@@ -146,33 +146,33 @@ const uniqueElement = function(numbers) {
   return numbers.reduce(checkUnique,[]);
 }
 
-const unionOfNumbers = function(firstArrayElements,secondArrayElements) {
-  let combineTwoArrays = firstArrayElements.concat(secondArrayElements);
+const unionOfNumbers = function(set1,set2) {
+  let combineTwoArrays = set1.concat(set2);
   return uniqueElement(combineTwoArrays);
 }
 
-const checkIntersection = function(secondArrayElements) {
+const checkIntersection = function(set2) {
   return function(number){
-    if(secondArrayElements.includes(number)){
+    if(set2.includes(number)){
       return number;
     }
   }
 }
 
-const intersection = function(firstArrayElements,secondArrayElements) {
-  let intersection = checkIntersection(secondArrayElements);
-  return uniqueElement(firstArrayElements.filter(intersection));
+const intersection = function(set1,set2) {
+  let intersection = checkIntersection(set2);
+  return uniqueElement(set1.filter(intersection));
 }
 
-const checkDifference = function(secondArrayElements) {
+const checkDifference = function(set2) {
   return function(element) {
-    return !secondArrayElements.includes(element);
+    return !set2.includes(element);
   }
 }
 
-const difference = function(firstArrayElements,secondArrayElements) {
-  let setDifference = checkDifference(secondArrayElements);
-  let differenceSet = firstArrayElements.filter(setDifference);
+const difference = function(set1,set2) {
+  let setDifference = checkDifference(set2);
+  let differenceSet = set1.filter(setDifference);
   return uniqueElement(differenceSet);
 }
 
@@ -187,11 +187,11 @@ const isSubset = function(list, subset) {
   return subset.every(checkList);
 }
 
-const zipElements = function(firstArrayElements,secondArrayElements) {
+const zipElements = function(set1,set2) {
   let zippedElements = [];
-  let threshold = Math.min(firstArrayElements.length,secondArrayElements.length);
+  let threshold = Math.min(set1.length,set2.length);
   for(let index = 0; index < threshold; index++){
-    zippedElements[index] = [firstArrayElements[index],secondArrayElements[index]];
+    zippedElements[index] = [set1[index],set2[index]];
   }
   return zippedElements;
 }
