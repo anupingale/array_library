@@ -38,7 +38,7 @@ const compareResult = function(inputList,actual,expected,message) {
 }
 
 const testExtractOddNum = function(inputList,expected,message){
-  let actual = extractOddNumbers(list);
+  let actual = extractOddNumbers(inputList);
   compareResult(inputList,actual,expected,message);
   return;
 }
@@ -51,8 +51,8 @@ testExtractOddNum([-1],[-1],"checking with negative number");
 testExtractOddNum([1,2,3,4,5,6,7,8],[1,3,5,7],"checking with multiple input");
 
 const testExtractEvenNum = function(inputList,expected,message){
-  let actual = extractEvenNumbers(list);
-  let args = [list];
+  let actual = extractEvenNumbers(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -68,8 +68,8 @@ testExtractEvenNum([-2],[-2],"checking with negative even");
 testExtractEvenNum([ 1, 2, 3, 4, 5, 6],[ 2, 4, 6],"checking with multiple input");
 
 const testSumOfNums = function(inputList,expected,message){
-  let actual = sumOfNumbers(list);
-  let args = [list];
+  let actual = sumOfNumbers(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -84,8 +84,8 @@ testSumOfNums([-1,-2],-3,"add negative number");
 testSumOfNums([1,-5],-4,"add positive and negative num");
 
 const testReverseNum = function(inputList,expected,message){
-  let actual = reverseNumbers(list);
-  let args = [list];
+  let actual = reverseNumbers(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -97,8 +97,8 @@ testReverseNum([1,2],[2,1],"reverse two numbers");
 testReverseNum([1,-2,-3],[-3,-2,1],"reverse multiple numbers");
 
 const testSelectEvery2ndNum = function(inputList,expected,message){
-  let actual = selectEverySecondNumber(list);
-  let args = [list];
+  let actual = selectEverySecondNumber(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -110,8 +110,8 @@ testSelectEvery2ndNum([1,2,3],[1,3],"checking with 3 numbers");
 testSelectEvery2ndNum([1,-2],[1],"checking with 2 numbers");
 
 const testRevFiboSeries = function(inputList,expected,message){
-  let actual = reverseFibonacciSeries(list);
-  let args = [list];
+  let actual = reverseFibonacciSeries(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -123,8 +123,8 @@ testRevFiboSeries(4,[2,1,1,0],"reverse fibonacci series");
 testRevFiboSeries(-1,[],"reverse fibonacci series");
 
 const testGreatestNum = function(inputList,expected,message){
-  let actual = greatestNumber(list);
-  let args = [list];
+  let actual = greatestNumber(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -136,8 +136,8 @@ testGreatestNum([5,-2,0],5,"greatest numbers");
 testGreatestNum([-2,-3,-5],-2,"greatest numbers");
 
 const testSmallestNum = function(inputList,expected,message){
-  let actual = smallestNumber(list);
-  let args = [list];
+  let actual = smallestNumber(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -149,8 +149,8 @@ testSmallestNum([5,-2,0],-2,"smallest number");
 testSmallestNum([-2,-3,-5],-5,"smallest number");
 
 const testAverage = function(inputList,expected,message){
-  let actual = calculateAverage(list);
-  let args = [list];
+  let actual = calculateAverage(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -163,8 +163,8 @@ testAverage([1,2],1.5,"calculateAverage of numbers");
 testAverage([-1,-3],-2,"calculateAverage of numbers");
 
 const testLengthOfNames = function(inputList,expected,message){
-  let actual = mapLength(list);
-  let args = [list];
+  let actual = mapLength(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -176,8 +176,8 @@ testLengthOfNames(["Anu","Keerthy"],[3,7],"length of names");
 testLengthOfNames(["anu","bhawana","reshmi"],[3,7,6],"length of numbers");
 
 const testCountEvenNumbers = function(inputList,expected,message){
-  let actual = countEvenNumbers(list);
-  let args = [list];
+  let actual = countEvenNumbers(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -189,8 +189,8 @@ testCountEvenNumbers([-2,1,2],2,"count even numbers");
 testCountEvenNumbers([0,3,-4],2,"count even numbers");
 
 const testCountOddNumbers = function(inputList,expected,message){
-  let actual = countOddNumbers(list);
-  let args = [list];
+  let actual = countOddNumbers(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -202,8 +202,8 @@ testCountOddNumbers([0,2],0,"count odd numbers in list");
 testCountOddNumbers([1,2,-4,-1],2,"count odd numbers in list");
 
 const testCountNumAboveThreshold = function(number,inputList,expected,message){
-  let actual = countNumbersAboveThreshold(number,list);
-  let args = [number,list];
+  let actual = countNumbersAboveThreshold(number,inputList);
+  let args = [number,inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -215,8 +215,8 @@ testCountNumAboveThreshold(2,[1,2,3],2,"count number above threshold");
 testCountNumAboveThreshold(3,[3,5,6],3,"count number above threshold");
 
 const testCountNumBelowThreshold = function(number,inputList,expected,message){
-  let actual = countNumbersBelowThreshold(number,list);
-  let args = [list];
+  let actual = countNumbersBelowThreshold(number,inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -228,8 +228,8 @@ testCountNumBelowThreshold(2,[1,2,3],1,"count number below threshold");
 testCountNumBelowThreshold(3,[3,2,1],2,"count number below threshold");
 
 const testIndexOfNumber = function(number,inputList,expected,message){
-  let actual = findIndex(number,list);
-  let args = [list];
+  let actual = findIndex(number,inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -240,8 +240,8 @@ testIndexOfNumber(1,[0,4,2,3,4,1],5,"index of number");
 testIndexOfNumber(-2,[0,-2,5],1,"index of number");
 
 const testIsAsending = function(inputList,expected,message){
-  let actual = isAsending(list);
-  let args = [list];
+  let actual = isAsending(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -254,8 +254,8 @@ testIsAsending([1,3,4,5,1],false,"check asending order");
 testIsAsending([1,2,1,3,2],false,"check asending order");
 
 const testIsDecending = function(inputList,expected,message){
-  let actual = isDecending(list);
-  let args = [list];
+  let actual = isDecending(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -267,8 +267,8 @@ testIsDecending([1,2,3,4,5],false,"check desending order");
 testIsDecending([5,4,3,2,1],true,"check desending order");
 
 const testExtractDigit = function(inputList,expected,message){
-  let actual = extractDigitsIntoArray(list);
-  let args = [list];
+  let actual = extractDigitsIntoArray(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
@@ -279,8 +279,8 @@ testExtractDigit(112,[1,1,2],"extract digits into list");
 testExtractDigit(1234567,[1,2,3,4,5,6,7],"extract digits into list");
 
 const testUniqueElements = function(inputList,expected,message){
-  let actual = uniqueElement(list);
-  let args = [list];
+  let actual = uniqueElement(inputList);
+  let args = [inputList];
   logTest(args,actual,expected,message);
   assert.deepStrictEqual(actual,expected);
   return;
