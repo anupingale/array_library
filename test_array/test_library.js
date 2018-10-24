@@ -118,10 +118,10 @@ const testGreatestNum = function(inputList,expected,message){
   return;
 }
 
-testGreatestNum([1],1,"greatest numbers");
-testGreatestNum([1,3],3,"greatest numbers");
-testGreatestNum([5,-2,0],5,"greatest numbers");
-testGreatestNum([-2,-3,-5],-2,"greatest numbers");
+testGreatestNum([1],1,"greatest among 1 number");
+testGreatestNum([1,3],3,"greatest of 2 numbers");
+testGreatestNum([5,-2,0],5,"checked with +ve and -ve num");
+testGreatestNum([-2,-3,-5],-2,"check with -ve numbers");
 
 const testSmallestNum = function(inputList,expected,message){
   let actual = smallestNumber(inputList);
