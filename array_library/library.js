@@ -202,11 +202,8 @@ const rotateElements = function(source,index) {
 
 const createPartition = function(threshold) {
   return function(array,element) {
-    if(element <= threshold){
-      array[0].push(element);
-      return array;
-    }
-    array[1].push(element);
+    let index = +(element>threshold)
+    array[index].push(element);
     return array;
   }
 }
